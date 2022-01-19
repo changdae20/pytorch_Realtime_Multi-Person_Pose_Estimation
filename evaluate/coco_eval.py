@@ -19,16 +19,21 @@ from lib.utils.common import Human, BodyPart, CocoPart, CocoColors, CocoPairsRen
 from lib.utils.paf_to_pose import paf_to_pose_cpp
 
 
-parser = argparse.ArgumentParser()
-parser.add_argument('--cfg', help='experiment configure file name',
-                    default='./experiments/vgg19_368x368_sgd.yaml', type=str)
-parser.add_argument('--weight', type=str,
-                    default='../ckpts/openpose.pth')
-parser.add_argument('opts',
-                    help="Modify config options using the command-line",
-                    default=None,
-                    nargs=argparse.REMAINDER)
-args = parser.parse_args()
+# parser = argparse.ArgumentParser()
+# parser.add_argument('--cfg', help='experiment configure file name',
+#                     default='./experiments/vgg19_368x368_sgd.yaml', type=str)
+# parser.add_argument('--weight', type=str,
+#                     default='../ckpts/openpose.pth')
+# parser.add_argument('opts',
+#                     help="Modify config options using the command-line",
+#                     default=None,
+#                     nargs=argparse.REMAINDER)
+# args = parser.parse_args()
+
+args = {}
+args["cfg"] = './experiments/vgg19_368x368_sgd.yaml'
+args["weight"] = '../ckpts/openpose.pth'
+args["opts"] = []
 
 # update config file
 update_config(cfg, args)
